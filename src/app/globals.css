@@ -1,0 +1,205 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-highlight: var(--highlight);
+  --color-dim: var(--dim);
+  --color-border: var(--border);
+  --color-terminal: var(--terminal);
+
+  --font-mono: var(--font-geist-mono);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* ===== Temas =====
+   O tema ativo é definido via data-theme no <html> (gerenciado em runtime).
+   :root carrega o fallback = Midnight para SSR/no-JS. */
+
+:root,
+[data-theme="midnight"] {
+  --background: #0a0f1e;
+  --foreground: #d4dff3;
+  --muted: #131a2e;
+  --muted-foreground: #6b7a9c;
+  --accent: #6ea8ff;
+  --accent-foreground: #061120;
+  --highlight: #9cc4ff;
+  --dim: #31405e;
+  --border: #1d2a45;
+  --terminal: #0d1426;
+}
+
+[data-theme="dracula"] {
+  --background: #16151e;
+  --foreground: #f2f2f7;
+  --muted: #24222e;
+  --muted-foreground: #9a94b0;
+  --accent: #ff79c6;
+  --accent-foreground: #200d1a;
+  --highlight: #ff92d0;
+  --dim: #574f66;
+  --border: #302a3f;
+  --terminal: #1b1a24;
+}
+
+[data-theme="nord"] {
+  --background: #111822;
+  --foreground: #d8dee9;
+  --muted: #1b2432;
+  --muted-foreground: #7d8aa0;
+  --accent: #88c0d0;
+  --accent-foreground: #06242c;
+  --highlight: #a3d5e0;
+  --dim: #3e4c60;
+  --border: #29374a;
+  --terminal: #141d29;
+}
+
+[data-theme="amber"] {
+  --background: #161109;
+  --foreground: #edd9b0;
+  --muted: #221a0d;
+  --muted-foreground: #a38658;
+  --accent: #ffb020;
+  --accent-foreground: #201400;
+  --highlight: #ffcb66;
+  --dim: #6b5226;
+  --border: #382c16;
+  --terminal: #1a140a;
+}
+
+[data-theme="matrix"] {
+  --background: #020403;
+  --foreground: #a5e8a0;
+  --muted: #0c1510;
+  --muted-foreground: #5c7660;
+  --accent: #5cef76;
+  --accent-foreground: #02110a;
+  --highlight: #8cf29a;
+  --dim: #3a5240;
+  --border: #17301f;
+  --terminal: #0a120d;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo,
+    Consolas, monospace;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ===== Animações ===== */
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+.animate-cursor {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes bootLine {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.boot-line {
+  animation: bootLine 0.35s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.command-output {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+@keyframes barGrow {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--bar-width);
+  }
+}
+.skill-bar {
+  animation: barGrow 0.6s ease-out forwards;
+}
+
+/* Scanlines sutis */
+.scanlines::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.015) 0px,
+    rgba(255, 255, 255, 0.015) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  z-index: 50;
+}
+
+/* Seleção estilo terminal */
+::selection {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--dim);
+  border: 2px solid var(--background);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
