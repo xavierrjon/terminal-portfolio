@@ -67,6 +67,22 @@ export default function BootScreen({ onComplete }: { onComplete: () => void }) {
           <Cursor className="mr-1" /> <span className="text-xs">[ Enter para pular ]</span>
         </p>
       )}
+
+      {visible >= lines.length && (
+        <div className="boot-explore mt-6">
+          <p className="text-muted-foreground">
+            Digite <span className="text-accent font-semibold">/</span> para
+            explorar, ou toque no botão abaixo.
+          </p>
+          <button
+            type="button"
+            className="boot-explore-btn"
+            onClick={skip}
+          >
+            /
+          </button>
+        </div>
+      )}
     </div>
   );
 }

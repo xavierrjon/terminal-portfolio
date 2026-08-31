@@ -1,9 +1,35 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import type { Project } from "@/types/project";
+import ProjectDetails from "./ProjectDetails";
 
 export default function ProjectCard({ project }: { project: Project }) {
+  const [expanded, setExpanded] = useState(false);
+
+  if (expanded) {
+    return (
+      <div className="flex flex-col gap-3">
+        <button
+          type="button"
+          onClick={() => setExpanded(false)}
+          className="self-start rounded border border-border bg-muted px-3 py-1.5 text-xs text-muted-foreground transition hover:border-accent hover:text-accent"
+        >
+          ← voltar para lista
+        </button>
+        <ProjectDetails project={project} />
+      </div>
+    );
+  }
+
   return (
-    <div className="flex flex-col overflow-hidden rounded border border-border bg-terminal">
+    <button
+      type="button"
+      onClick={() => setExpanded(true)}
+      className="flex flex-col overflow-hidden rounded border border-border bg-terminal text-left transition hover:border-accent active:border-accent"
+      aria-label={`Ver detalhes de ${project.name}`}
+    >
       {project.image && (
         <div className="relative h-36 w-full overflow-hidden border-b border-border">
           <Image
@@ -33,7 +59,10 @@ export default function ProjectCard({ project }: { project: Project }) {
             </span>
           ))}
         </div>
+        <span className="mt-2 inline-block rounded border border-accent px-3 py-1.5 text-center text-xs font-semibold text-accent">
+          Ver projeto →
+        </span>
       </div>
-    </div>
+    </button>
   );
 }

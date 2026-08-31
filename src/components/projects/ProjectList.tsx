@@ -22,7 +22,7 @@ export default function ProjectList({
         {projects.length} projetos encontrados.
       </p>
       <p className="text-muted-foreground">
-        # use /projetos/&lt;nome&gt; para ver os detalhes de um projeto.
+        # toque em um projeto ou use /projetos/&lt;nome&gt; para os detalhes.
       </p>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
