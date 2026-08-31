@@ -298,20 +298,20 @@ export function suggest(input: string): string[] {
   const q = input.toLowerCase();
 
   // subcomandos de projetos: "/projetos e..." -> "/projetos ecomida"
-  const projMatch = q.match(/^\/projetos\s+(.*)$/);
+  const projMatch = q.match(/^\/projetos(?:\s+|\/)(.*)$/);
   if (projMatch) {
-    const arg = projMatch[1];
+    const arg = (projMatch[1] ?? "").trim();
     const matches = projects
       .filter((p) => p.id.toLowerCase().startsWith(arg))
-      .map((p) => `/projetos ${p.id}`);
+      .map((p) => `/projetos/${p.id}`);
     if (matches.length > 0) return matches;
     return commandNames.filter((n) => n.toLowerCase().startsWith(q));
   }
 
   // subcomandos de temas: "/tema d..." -> "/tema dracula"
-  const temaMatch = q.match(/^\/tema\s+(.*)$/);
+  const temaMatch = q.match(/^\/tema(?:\s+|\/)(.*)$/);
   if (temaMatch) {
-    const arg = temaMatch[1];
+    const arg = (temaMatch[1] ?? "").trim();
     const matches = themes
       .filter((t) => t.id.toLowerCase().startsWith(arg))
       .map((t) => `/tema ${t.id}`);

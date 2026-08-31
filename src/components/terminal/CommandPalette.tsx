@@ -62,20 +62,22 @@ function allItems(groups: PaletteGroup[]): { cmd: string; desc: string }[] {
 }
 
 function subSuggestions(q: string): { cmd: string; desc: string }[] {
-  const pm = q.match(/^\/projetos\s+(.*)$/);
+  const pm = q.match(/^\/projetos(?:\s+|\/)(.*)$/);
   if (pm) {
+    const arg = (pm[1] ?? "").trim();
     return projects
-      .filter((p) => p.id.toLowerCase().startsWith(pm[1]))
+      .filter((p) => p.id.toLowerCase().startsWith(arg))
       .map((p) => ({
-        cmd: `/projetos ${p.id}`,
+        cmd: `/projetos/${p.id}`,
         desc: p.tagline,
       }));
   }
 
-  const tm = q.match(/^\/tema\s+(.*)$/);
+  const tm = q.match(/^\/tema(?:\s+|\/)(.*)$/);
   if (tm) {
+    const arg = (tm[1] ?? "").trim();
     return themes
-      .filter((t) => t.id.toLowerCase().startsWith(tm[1]))
+      .filter((t) => t.id.toLowerCase().startsWith(arg))
       .map((t) => ({
         cmd: `/tema ${t.id}`,
         desc: t.description,

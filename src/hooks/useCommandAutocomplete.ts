@@ -3,6 +3,10 @@
 import { useMemo } from "react";
 import { suggest } from "@/lib/commands";
 
+function isSubcommand(prefix: string): boolean {
+  return prefix === "/projetos" || prefix === "/tema";
+}
+
 /**
  * Gera sugestões de autocomplete a partir do texto digitado.
  */
@@ -18,9 +22,13 @@ export function useCommandAutocomplete(input: string): {
       return { suggestions: [], current: undefined };
     }
 
-    // "/projetos/..." -> não sugere
+    // "/projetos/..." ou "/tema/..." são subcomandos com sugestão própria.
+    // Bloqueia apenas barras em outros contextos (ex.: "/foo/bar").
     if (trimmed.includes("/", 1)) {
-      return { suggestions: [], current: undefined };
+      const prefix = trimmed.split(/[\s/]/)[0];
+      if (!isSubcommand(prefix)) {
+        return { suggestions: [], current: undefined };
+      }
     }
 
     const suggestions = suggest(trimmed);
