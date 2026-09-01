@@ -1,6 +1,12 @@
 # Portfólio Terminal — Johnny Xavier
 
-Portfólio web com estética de **terminal moderno interativo** (inspirado em Claude Code). Em vez de navegação tradicional, o visitante explora todo o conteúdo digitando comandos. Foi feito por diversão, para juntar dois interesses: programação e interfaces com cara de terminal.
+> Portfólio web com estética de **terminal moderno interativo**, inspirado no Claude Code.
+
+<p align="center">
+  <img src="./src/assets/preview.png" alt="Preview do Portfólio Terminal" width="500">
+</p>
+
+Em vez de navegação tradicional, o visitante explora todo o conteúdo digitando comandos. Foi feito por diversão, para juntar dois interesses: programação e interfaces com cara de terminal.
 
 ## Como funciona
 
@@ -20,19 +26,19 @@ Digite `/` para ver os comandos disponíveis e navegue com teclado (Tab para aut
 
 ## Comandos
 
-| Comando | Descrição |
-| --- | --- |
-| `/ajuda` | Mostra todos os comandos |
-| `/sobre` | Sobre mim |
-| `/habilidades` | Tecnologias e conhecimentos (com barras) |
-| `/projetos` | Lista de projetos |
-| `/projetos/nome` | Detalhes de um projeto |
-| `/experiencia` | Experiências |
-| `/contato` | Formas de contato |
-| `/curriculo` | Currículo resumido |
-| `/neofetch` | Informações do perfil (ASCII art) |
-| `/tema` | Alternar tema |
-| `/clear` | Limpar terminal |
+| Comando          | Descrição                                |
+| ---------------- | ---------------------------------------- |
+| `/ajuda`         | Mostra todos os comandos                 |
+| `/sobre`         | Sobre mim                                |
+| `/habilidades`   | Tecnologias e conhecimentos (com barras) |
+| `/projetos`      | Lista de projetos                        |
+| `/projetos/nome` | Detalhes de um projeto                   |
+| `/experiencia`   | Experiências                             |
+| `/contato`       | Formas de contato                        |
+| `/curriculo`     | Currículo resumido                       |
+| `/neofetch`      | Informações do perfil (ASCII art)        |
+| `/tema`          | Alternar tema                            |
+| `/clear`         | Limpar terminal                          |
 
 Também há comandos tradicionais (`ls`, `pwd`, `whoami`, `help`, `clear`) e alguns easter eggs (`/coffee`, `/sudo`, `/hello`).
 
@@ -42,9 +48,11 @@ Também há comandos tradicionais (`ls`, `pwd`, `whoami`, `help`, `clear`) e alg
 
 ## Tecnologias
 
-- React
-- Next.js
-- TypeScript
-- Tailwind CSS
+* React
+* Next.js
+* TypeScript
+* Tailwind CSS
 
-Acesse em: [portfolio-bash-jsx.netlify.app](portfolio-bash-jsx.netlify.app)
+## Acesse
+
+🌐 **[portfolio-bash-jsx.netlify.app](https://portfolio-bash-jsx.netlify.app)**
