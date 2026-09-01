@@ -3,7 +3,7 @@
 > Portfólio web com estética de **terminal moderno interativo**, inspirado no Claude Code.
 
 <p align="center">
-  <img src="./src/assets/preview.png" alt="Preview do Portfólio Terminal" width="500">
+  <img src="./src/assets/preview.png" alt="Preview do Portfólio Terminal" width="900">
 </p>
 
 Em vez de navegação tradicional, o visitante explora todo o conteúdo digitando comandos. Foi feito por diversão, para juntar dois interesses: programação e interfaces com cara de terminal.
