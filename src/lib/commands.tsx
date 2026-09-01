@@ -166,7 +166,6 @@ export const commands: Command[] = [
     execute: () => ({ ok: true, action: "clear" }),
   },
 
-  // ===== Comandos tradicionais (imersão) =====
   {
     name: "help",
     description: "Ajuda",
@@ -206,7 +205,6 @@ export const commands: Command[] = [
       }) as CommandResult,
   },
 
-  // ===== Easter eggs =====
   {
     name: "/coffee",
     description: "Café necessário",
@@ -297,7 +295,6 @@ export function runCommand(raw: string, ctx: CommandContext): CommandResult {
 export function suggest(input: string): string[] {
   const q = input.toLowerCase();
 
-  // subcomandos de projetos: "/projetos e..." -> "/projetos ecomida"
   const projMatch = q.match(/^\/projetos(?:\s+|\/)(.*)$/);
   if (projMatch) {
     const arg = (projMatch[1] ?? "").trim();
@@ -308,7 +305,6 @@ export function suggest(input: string): string[] {
     return commandNames.filter((n) => n.toLowerCase().startsWith(q));
   }
 
-  // subcomandos de temas: "/tema d..." -> "/tema dracula"
   const temaMatch = q.match(/^\/tema(?:\s+|\/)(.*)$/);
   if (temaMatch) {
     const arg = (temaMatch[1] ?? "").trim();
@@ -326,7 +322,6 @@ export function suggest(input: string): string[] {
 export function closestCommand(input: string): string | undefined {
   const q = input.toLowerCase();
 
-  // remove barra para comparar com nomes
   const normalized = q.startsWith("/") ? q.slice(1) : q;
 
   const candidates = commands
@@ -337,7 +332,6 @@ export function closestCommand(input: string): string | undefined {
   let bestScore = -1;
 
   for (const cand of candidates) {
-    // distância de edição simples (levenstein)
     const score = editDistance(normalized, cand);
     if (score <= 2 && (best === undefined || score < bestScore)) {
       best = cand;
@@ -366,5 +360,3 @@ function editDistance(a: string, b: string): number {
   }
   return dp[a.length][b.length];
 }
-
-export { renderLines, notFound };

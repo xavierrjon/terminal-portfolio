@@ -7,9 +7,6 @@ function isSubcommand(prefix: string): boolean {
   return prefix === "/projetos" || prefix === "/tema";
 }
 
-/**
- * Gera sugestões de autocomplete a partir do texto digitado.
- */
 export function useCommandAutocomplete(input: string): {
   suggestions: string[];
   current: string | undefined;
@@ -17,13 +14,10 @@ export function useCommandAutocomplete(input: string): {
   return useMemo(() => {
     const trimmed = input.trimStart();
 
-    // só autocompleta comandos iniciados com "/"
     if (!trimmed.startsWith("/")) {
       return { suggestions: [], current: undefined };
     }
 
-    // "/projetos/..." ou "/tema/..." são subcomandos com sugestão própria.
-    // Bloqueia apenas barras em outros contextos (ex.: "/foo/bar").
     if (trimmed.includes("/", 1)) {
       const prefix = trimmed.split(/[\s/]/)[0];
       if (!isSubcommand(prefix)) {

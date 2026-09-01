@@ -2,9 +2,6 @@
 
 import { useCallback, useState } from "react";
 
-/**
- * Gerencia o histórico de comandos e a navegação com setas para cima/baixo.
- */
 export function useCommandHistory() {
   const [history, setHistory] = useState<string[]>([]);
   const [cursor, setCursor] = useState(-1);
@@ -24,7 +21,6 @@ export function useCommandHistory() {
     setCursor(-1);
   };
 
-  /** Retorna o comando a exibir ao pressionar seta para cima. */
   const up = useCallback(
     (): string | null => {
       if (history.length === 0) return null;
@@ -35,7 +31,6 @@ export function useCommandHistory() {
     [history, cursor],
   );
 
-  /** Retorna o comando a exibir ao pressionar seta para baixo. */
   const down = useCallback(
     (): string | null => {
       if (cursor === -1) return preserved;

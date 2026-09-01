@@ -92,8 +92,6 @@ export default function CommandPalette({
   onExecute,
   onClose,
 }: CommandPaletteProps) {
-  // Estado é inicializado no mount. O componente é remontado (via key) sempre
-  // que a paleta abre, então o estado sempre começa limpo.
   const [query, setQuery] = useState("/");
   const [selIdx, setSelIdx] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);

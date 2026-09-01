@@ -86,7 +86,6 @@ export default function CommandSidebar({ onCommand }: CommandSidebarProps) {
           color: var(--muted-foreground);
         }
 
-        /* Apenas em tablets horizontais (md) — desktop usa o terminal completo */
         @media (min-width: 768px) and (max-width: 1023px) {
           .command-sidebar {
             display: flex;

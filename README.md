@@ -1,6 +1,6 @@
 # Portfólio Terminal — Johnny Xavier
 
-Portfólio web com estética de **terminal moderno interativo** (inspirado em Claude Code e OpenCode). Em vez de navegação tradicional, o visitante explora todo o conteúdo digitando comandos.
+Portfólio web com estética de **terminal moderno interativo** (inspirado em Claude Code). Em vez de navegação tradicional, o visitante explora todo o conteúdo digitando comandos. Foi feito por diversão, para juntar dois interesses: programação e interfaces com cara de terminal.
 
 ## Como funciona
 
@@ -32,9 +32,9 @@ Digite `/` para ver os comandos disponíveis e navegue com teclado (Tab para aut
 | `/curriculo` | Currículo resumido |
 | `/neofetch` | Informações do perfil (ASCII art) |
 | `/tema` | Alternar tema |
-| `/limpar` | Limpar terminal |
+| `/clear` | Limpar terminal |
 
-Também há aliases em inglês (`/about`, `/skills`, `/projects`, `/contact`, `/resume`, `/help`), comandos tradicionais (`ls`, `pwd`, `whoami`, `help`, `clear`) e alguns easter eggs (`/coffee`, `/sudo`, `/42`...).
+Também há comandos tradicionais (`ls`, `pwd`, `whoami`, `help`, `clear`) e alguns easter eggs (`/coffee`, `/sudo`, `/hello`).
 
 ## Temas
 
@@ -47,4 +47,4 @@ Também há aliases em inglês (`/about`, `/skills`, `/projects`, `/contact`, `/
 - TypeScript
 - Tailwind CSS
 
-Acesse em: [https://johnny-xavier.vercel.app](https://johnny-xavier.vercel.app)
+Acesse em: [portfolio-bash-jsx.netlify.app](portfolio-bash-jsx.netlify.app)

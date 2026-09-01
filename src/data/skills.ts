@@ -1,6 +1,6 @@
 export type Skill = {
   name: string;
-  level: number; // 0-100, representação visual apenas
+  level: number;
 };
 
 export type SkillCategory = {
